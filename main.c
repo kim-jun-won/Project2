@@ -42,7 +42,8 @@ void filestat2(){
 }
 
 void filetime1(){
-    time1 = localtime(&stat1.st_mtime);
+    localtime_r(&stat1.st_mtime, &time1_val);
+    time1 = &time1_val;
 }
 
 
