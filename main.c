@@ -77,7 +77,7 @@ void blockcmp()
         printf("sizes are equal\n\n");
 }
 
-void datecmp(struct tm* time1, struct tm* time2){
+void datecmp() {
     printf("date compare\n");
 
     if (time1 == NULL || time2 == NULL) {
@@ -101,7 +101,7 @@ void datecmp(struct tm* time1, struct tm* time2){
         printf("same date\n");
 }
 
-void timecmp(struct tm* time1, struct tm* time2){
+void timecmp() {
     printf("\ntime compare\n");
 
     if (time1 == NULL || time2 == NULL) {
