@@ -77,7 +77,6 @@ void blockcmp()
         printf("sizes are equal\n\n");
 }
 
-//두 개의 파일 수정 날짜를 비교하는 함수 작성
 void datecmp(){
     if (time1 == NULL) {
         printf("Error: time1 is NULL.\n");
@@ -102,12 +101,12 @@ void datecmp(){
             } else if (time1->tm_mday > time2->tm_mday) {
                 printf("text2 is early\n");
             } else {
-                printf("same date\n");  // 슬라이드 요구사항 충족
+                printf("same date\n"); 
             }
         }
     }
 }
-//두 개의 파일 수정 시간을 비교하는 함수 작성
+
 void timecmp(){
     if (time1 == NULL) {
         printf("Error: time1 is NULL.\n");
@@ -132,12 +131,10 @@ void timecmp(){
             } else if (time1->tm_sec > time2->tm_sec) {
                 printf("text2 is early\n");
             } else {
-                printf("same time\n");  // 슬라이드 요구사항 충족
+                printf("same time\n"); 
             }
         }
     }
-
 }
-
 
 
