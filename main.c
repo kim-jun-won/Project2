@@ -77,49 +77,41 @@ void blockcmp()
         printf("sizes are equal\n\n");
 }
 
-//두 개의 파일 수정 날짜를 비교하는 함수 작성
 void datecmp(){
-    // time1이 NULL인지 확인
     if (time1 == NULL) {
         printf("Error: time1 is NULL.\n");
         return;  
     }
-    // time2가 NULL인지 확인
     if (time2 == NULL) {
         printf("Error: time2 is NULL.\n");
         return;
     }
     if (time1->tm_year < time2->tm_year) {
-        printf("text1 is early\n");
+        printf("text1 is early\n");  // 수정 불필요
     } else if (time1->tm_year > time2->tm_year) {
         printf("text2 is early\n");
     } else {
-        // 같은 해
         if (time1->tm_mon < time2->tm_mon) {
             printf("text1 is early\n");
         } else if (time1->tm_mon > time2->tm_mon) {
             printf("text2 is early\n");
         } else {
-            // 같은 달
             if (time1->tm_mday < time2->tm_mday) {
                 printf("text1 is early\n");
             } else if (time1->tm_mday > time2->tm_mday) {
                 printf("text2 is early\n");
             } else {
-                printf("same date\n");
+                printf("same date\n"); 
             }
         }
     }
 }
 
-//두 개의 파일 수정 시간을 비교하는 함수 작성
 void timecmp(){
-    // time1이 NULL인지 확인
     if (time1 == NULL) {
         printf("Error: time1 is NULL.\n");
         return;  
     }
-    // time2가 NULL인지 확인
     if (time2 == NULL) {
         printf("Error: time2 is NULL.\n");
         return;
@@ -129,21 +121,20 @@ void timecmp(){
     } else if (time1->tm_hour > time2->tm_hour) {
         printf("text2 is early\n");
     } else {
-        // 같은 시
         if (time1->tm_min < time2->tm_min) {
             printf("text1 is early\n");
         } else if (time1->tm_min > time2->tm_min) {
             printf("text2 is early\n");
         } else {
-            // 같은 분
             if (time1->tm_sec < time2->tm_sec) {
                 printf("text1 is early\n");
             } else if (time1->tm_sec > time2->tm_sec) {
                 printf("text2 is early\n");
             } else {
-                printf("same time\n");
+                printf("same time\n"); 
             }
         }
     }
-
 }
+
+
