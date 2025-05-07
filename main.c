@@ -77,64 +77,50 @@ void blockcmp()
         printf("sizes are equal\n\n");
 }
 
-void datecmp(){
-    if (time1 == NULL) {
-        printf("Error: time1 is NULL.\n");
-        return;  
-    }
-    if (time2 == NULL) {
-        printf("Error: time2 is NULL.\n");
-        return;
-    }
-    if (time1->tm_year < time2->tm_year) {
-        printf("text1 is early\n");  // 수정 불필요
-    } else if (time1->tm_year > time2->tm_year) {
-        printf("text2 is early\n");
-    } else {
-        if (time1->tm_mon < time2->tm_mon) {
-            printf("text1 is early\n");
-        } else if (time1->tm_mon > time2->tm_mon) {
-            printf("text2 is early\n");
-        } else {
-            if (time1->tm_mday < time2->tm_mday) {
-                printf("text1 is early\n");
-            } else if (time1->tm_mday > time2->tm_mday) {
-                printf("text2 is early\n");
-            } else {
-                printf("same date\n"); 
-            }
-        }
-    }
-}
+void datecmp(struct tm* time1, struct tm* time2){
+    printf("date compare\n");
 
-void timecmp(){
-    if (time1 == NULL) {
-        printf("Error: time1 is NULL.\n");
-        return;  
-    }
-    if (time2 == NULL) {
-        printf("Error: time2 is NULL.\n");
+    if (time1 == NULL || time2 == NULL) {
+        printf("Error: One of the time values is NULL.\n");
         return;
     }
-    if (time1->tm_hour < time2->tm_hour) {
+
+    if (time1->tm_year < time2->tm_year)
         printf("text1 is early\n");
-    } else if (time1->tm_hour > time2->tm_hour) {
+    else if (time1->tm_year > time2->tm_year)
         printf("text2 is early\n");
-    } else {
-        if (time1->tm_min < time2->tm_min) {
-            printf("text1 is early\n");
-        } else if (time1->tm_min > time2->tm_min) {
-            printf("text2 is early\n");
-        } else {
-            if (time1->tm_sec < time2->tm_sec) {
-                printf("text1 is early\n");
-            } else if (time1->tm_sec > time2->tm_sec) {
-                printf("text2 is early\n");
-            } else {
-                printf("same time\n"); 
-            }
-        }
-    }
+    else if (time1->tm_mon < time2->tm_mon)
+        printf("text1 is early\n");
+    else if (time1->tm_mon > time2->tm_mon)
+        printf("text2 is early\n");
+    else if (time1->tm_mday < time2->tm_mday)
+        printf("text1 is early\n");
+    else if (time1->tm_mday > time2->tm_mday)
+        printf("text2 is early\n");
+    else
+        printf("same date\n");
 }
 
+void timecmp(struct tm* time1, struct tm* time2){
+    printf("\ntime compare\n");
 
+    if (time1 == NULL || time2 == NULL) {
+        printf("Error: One of the time values is NULL.\n");
+        return;
+    }
+
+    if (time1->tm_hour < time2->tm_hour)
+        printf("text1 is early\n");
+    else if (time1->tm_hour > time2->tm_hour)
+        printf("text2 is early\n");
+    else if (time1->tm_min < time2->tm_min)
+        printf("text1 is early\n");
+    else if (time1->tm_min > time2->tm_min)
+        printf("text2 is early\n");
+    else if (time1->tm_sec < time2->tm_sec)
+        printf("text1 is early\n");
+    else if (time1->tm_sec > time2->tm_sec)
+        printf("text2 is early\n");
+    else
+        printf("same time\n");
+}
