@@ -29,6 +29,20 @@ int main()
     timecmp();
 }
 
+//파일 1의 정보를 가져오는 함수 작성
+void filestat1(){
+    if (stat("text1", &stat1) == -1) {
+        perror("stat error for text1");
+    }
+}
+
+//파일 2의 정보를 가져오는 함수 작성
+void filestat2(){
+    if (stat("text2", &stat2) == -1) {
+        perror("stat error for text2");
+    }
+}
+
 void filetime1(){
     localtime_r(&stat1.st_mtime, &time1_val);
     time1 = &time1_val;
