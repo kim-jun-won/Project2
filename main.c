@@ -6,6 +6,7 @@
 
 struct stat stat1, stat2;
 struct tm *time1, *time2;
+struct tm time1_val, time2_val;
 
 void filestat1();
 void filestat2();
@@ -39,8 +40,10 @@ void filestat2()
 }
 
 // 파일 1의 시간 정보를 가져오는 함수 작성
-void filetime1()
+void filetime2()
 {
+    localtime_r(&stat2.st_mtime, &time2_val);
+    time2 = &time2_val;
 }
 
 // 파일 2의 시간 정보를 가져오는 함수 작성
