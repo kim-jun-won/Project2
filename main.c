@@ -6,6 +6,7 @@
 
 struct stat stat1, stat2;
 struct tm *time1, *time2;
+struct tm time1_val, time2_val;
 
 void filestat1();
 void filestat2();
@@ -28,30 +29,16 @@ int main()
     timecmp();
 }
 
-//파일 1의 정보를 가져오는 함수 작성
-void filestat1(){
-    if (stat("text1", &stat1) == -1) {
-        perror("stat error for text1");
-    }
-}
-
-//파일 2의 정보를 가져오는 함수 작성
-void filestat2(){
-    if (stat("text2", &stat2) == -1) {
-        perror("stat error for text2");
-    }
-}
-
 void filetime1(){
     localtime_r(&stat1.st_mtime, &time1_val);
     time1 = &time1_val;
 }
 
-
-// 파일 2의 시간 정보를 가져오는 함수 작성
+// 파일 1의 시간 정보를 가져오는 함수 작성
 void filetime2()
 {
-    time2 = localtime(&stat2.st_mtime);
+    localtime_r(&stat2.st_mtime, &time2_val);
+    time2 = &time2_val;
 }
 
 // 두 개의 파일 크기를 비교하는 함수 작성
